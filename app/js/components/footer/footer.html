@@ -1,0 +1,9 @@
+<fieldset class="footer">
+	<legend>
+		<img height="60" src="app/images/plog.png">
+	</legend>
+	<p>Prodception 2017 all rights reserved</p>
+	<ul>
+		<li ng-repeat="item in footer.routes" ng-click="footer.navigate(item.route)" ng-bind="item.format"></li>
+	</ul>
+</fieldset>

@@ -1,0 +1,71 @@
+#navigation {
+	margin-bottom: 2px;
+	.navigation-bar {
+		height: 60px;
+		border-bottom: 1px solid black;
+		box-shadow: 0 -3px 19px #888888;
+		position: relative;
+		padding: 4px 15px;
+
+		i {
+			position: absolute;
+			top: 7px;
+			right: 10px;
+			font-size: 35px;
+			cursor: pointer;
+		}
+
+		p {
+			font-size: 30px;
+			color: black;
+			font-family: 'Vollkorn SC', serif;
+			cursor: pointer;
+			width: max-content;
+		}
+	}
+
+	.navigation-menu {
+		text-align: center;
+		padding: 15px 0 0 0;
+		font-size: 20px;
+		font-weight: bold;
+		height: 198px;
+		background-color: #fbfafa;
+		border-bottom: 1px solid black;
+		overflow: hidden;
+
+		&.animate.ng-enter {
+			transition: 300ms linear all;
+			height: 0;
+			&.ng-enter-active {
+				height: 198px;
+			}
+		}
+
+		&.animate.ng-leave {
+			transition: 300ms linear all;
+			&.ng-leave-active {
+				height: 0;
+			}
+		}
+
+		ul {
+			padding: 0;
+		}
+
+		li {
+			list-style: none;
+			cursor: pointer;
+			position: relative;
+			
+			&:hover {
+				background-color: black;
+				color: white;
+			};
+
+			&:active {
+				opacity: .5;
+			};
+		}
+	}
+}

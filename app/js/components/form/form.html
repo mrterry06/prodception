@@ -1,0 +1,23 @@
+<div id="form" class="container">
+	<h2 ng-bind="form.content.heading"></h2>
+	<p ng-bind="form.content.subheading"></p>
+	<form name="{{ form.formType }}">
+		<div class="input-container">
+			<label ng-repeat="field in form.formConfigurations" for="{{field.id}}" class="col col-sm-12 col-md-6 col-lg-6">{{ field.formattedName}}
+				<input class="form-control" 
+						type="{{ field.type}}" 
+						name="{{field.id}}" 
+						ng-model="form.formData[field.id]"
+						minlength="field.minlength"
+						maxlength="field.maxlength"
+						required="field.required"
+						>
+			</label>
+			<p ng-if="form.isApplication">Tell us about your Idea or company</p>
+			<label class="col col-sm-12 col-md-12 col-lg-12">Message
+				<textarea class="form-control" ng-model="application.applicationData.message" minlength="10" rows="6"></textarea>
+			</label>
+		</div>
+		<button ng-bind="'Submit'" ng-click="form.submit()"></button>
+	</form>
+</div>
