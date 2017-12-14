@@ -1,2 +1,4 @@
 node_modules/
 package-lock.json
+app/js/app.min.js
+app/js/vendors.min.js
