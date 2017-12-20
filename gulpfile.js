@@ -1,8 +1,8 @@
 var gulp = require('gulp'),
 	connect = require('gulp-connect'),
 	gutil = require('gulp-util'),
-	fs = require('fs'),
 	exec = require('gulp-exec'),
+	fs = require('fs'),
 
 // Varialize our source files
 	sources = {
