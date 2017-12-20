@@ -1,7 +1,8 @@
-var gulp = require('gulp')
-	connect = require('gulp-connect')
-	gutil = require('gulp-util')
-	fs = require('fs')
+var gulp = require('gulp'),
+	connect = require('gulp-connect'),
+	gutil = require('gulp-util'),
+	fs = require('fs'),
+	exec = require('gulp-exec'),
 
 // Varialize our source files
 	sources = {
@@ -31,6 +32,12 @@ gulp.task('build', [
 	'sass',
 	'scripts'
 ]);
+
+//Builds out project and runs production server
+gulp.task('prod', ['build'], function () {
+	return gulp.src('./')
+		.pipe(exec('node server.js'));
+});
 
 gulp.task('default', [
 	'connect',

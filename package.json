@@ -59,6 +59,7 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-read-json": "^1.1.0",
     "moment": "^2.18.1",
+    "nodemailer": "^4.4.1",
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {

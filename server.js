@@ -3,7 +3,7 @@ const express = require('express'),
 
 let port = process.argv[2] || 8181;
 
-app.use(express.static(__dirname + '/app'));
+app.use(express.static(__dirname));
 
 app.listen(port, () => {
 	console.log(`project is running on port ${port}`);
