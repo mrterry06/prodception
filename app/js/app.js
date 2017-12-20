@@ -21,6 +21,8 @@
     //Services
     'ScrollingService',
     'SubmitService',
+    //Directives
+    'magicScroll',
     //Constants
     'globalConstants'
   ]);

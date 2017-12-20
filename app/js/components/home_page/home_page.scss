@@ -1,3 +1,5 @@
+$background-gray: #f3f1ef;
+
 home-page {
 	> div {
 		height: 600px;
@@ -29,6 +31,12 @@ home-page {
 		}
 	}
 
+	.product-banner {
+		height: 100px;
+		font-size: 25px;
+		text-align: center;
+	}
+
 	.companyExplanation {
 		background-color: white;
 		padding: 60px 10px 40px 10px;
@@ -52,102 +60,22 @@ home-page {
 	}
 
 	.productCategories {
-		background-color: #f3f1ef;
-		padding-top: 40px;
-		position: relative;
-		h3 { 
-			text-align: center; 
-		}
-
-		hr {
-			margin-bottom: 0;
-		}
-
-		@include medium-screens-up {
-			> h3 {
-				font-size: 40px;
-				font-weight: bold;
-				position: absolute;
-				left: 0;
-				right: 0;
-				top: 100px;
-			}
-
-			hr {
-				display: none;
-			}
-
-			.icon-container {
-				margin-top: 40px;
-				display: flex;
-				flex-wrap: nowrap;
-				justify-content: center;
-				div {
-					width: 100%;
-					height: 100%;
-					position: relative;
-					h3 {
-						font-family: 'Vollkorn SC', serif;
-						font-size: 35px;
-						position: absolute;
-						left: 0;
-						right: 0;
-						margin: auto;
-						bottom: 300px;
-					}
-					img {
-						height: 250px;
-						position: absolute;
-						bottom: -30px;
-						right: 0;
-						left: 0;
-						margin: auto;
-					}
-				}
-			}
-		}
-
-		@include small-screens-only {
-			.icon-container {
-				padding: 10px 0;
-				div {
-					padding: 15px 0;
-					h3 {
-						font-family: 'Vollkorn SC', serif;
-						font-size: 20px;
-						text-align: center;
-						margin-bottom: 15px; 
-					}
-
-					img {
-						display: block;
-						margin: 0 auto;
-						height: 90px;
-					}				
-				}
-			}
-		}
+		background-color: $background-gray;
 	}
 
 	.reach-out {
-		img {
-			display: block;
-			margin: 0 auto;
-			height: 600px;
-			width: 100%
-		}
 	}
 
-	.product-list {
-		background-color: #f3f1ef;
+	.team {
+		background-color: $background-gray;
 	}
 
 	.services-talk {
-		background: linear-gradient(135deg, rgba(196,206,204,0) 1%,rgba(196,206,204,0) 17%,rgba(196,206,204,0.16) 30%,rgba(172,175,182,0.74) 78%,rgba(172,175,182,1) 100%);
 	}
 
 	.last-message {
 		background-color: white;
+		border-bottom: none;
 	}
 
 }

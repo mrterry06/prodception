@@ -1,12 +1,19 @@
-about {
+#about {
+	padding: 20px;
 	text-align: center;
 	h1 {
 		text-align: center;
 		font-family: 'Vollkorn SC', serif;
 	}
 
-	img {
-		display: block;
-		margin: 0 auto;
+	.history {
+		div {
+			display: inline-block;
+			position: relative;
+			p {
+				width: 100%;
+			}
+		}
+
 	}
 }

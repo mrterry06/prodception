@@ -1,4 +1,19 @@
-<div>
-	<h1>SOME AMAIZNG FASS DFKFDSAS</h1>
-	<p>Yes this works with Prodcts</p>
+<div id="products">
+	<h2>Prodception Products</h2>
+	<hr>
+	<p>Here is the list of some of the companies under our umbrella.</p>
+	<div class="product-list">
+		<div ng-repeat="product in products.products">
+			<h3 ng-bind="product.title"></h3>
+			<div class="product-image">
+				<img height="120" ng-src="{{product.imgsource}}">
+			</div>
+			<div class="product-summary">
+				<h4>What is it?</h4>
+				<p ng-bind="product.summary"></p>				
+			</div>
+			<a href="#">Check Out</a>
+			<hr>	
+		</div>
+	</div>
 </div>

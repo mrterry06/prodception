@@ -1,6 +1,17 @@
-products {
+#products {
+	padding: 30px 15px 0px 15px;
 	h1 {
 		text-align: center;
 		font-family: 'Vollkorn SC', serif;
+	}
+
+	.product-list {
+		h3 {
+			text-align: center;
+		}
+		img {
+			display: block;
+			margin: 0 auto;
+		}
 	}
 }
