@@ -1,7 +1,7 @@
 .footer {
-	height: 200px;
+	height: 400px;
 	width: 100%;
-	background-color: #f3f1ef;
+	background-color: #fbfafa;
 	position: relative;
 	margin-top: 20px;
 
@@ -36,6 +36,19 @@
 
 			&:last-of-type {
 				border-right: none;
+			}
+		}
+
+		@include small-screens-only {
+
+			li {
+				display: block;
+				margin: 0 auto;
+				border-bottom: 1px solid gainsboro;
+				border-right: none;
+				width: 300px;
+				padding: 15px;
+				cursor: pointer;
 			}
 		}
 	}

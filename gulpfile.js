@@ -39,13 +39,9 @@ gulp.task('prod', ['build'], function () {
 		.pipe(exec('node server.js'));
 });
 
-
-//Build out project and runs dev and mock server
-gulp.task('dev', [
+gulp.task('default', [
 	'connect',
 	'sass',
 	'scripts',
 	'watch'
 ]);
-
-gulp.task('default', ['dev']);

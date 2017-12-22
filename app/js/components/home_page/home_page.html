@@ -1,18 +1,56 @@
 
 <div class="header">
 	<div class="background"></div>
-	<h3>Prodception</h3>
+	<div class="white-background"></div>
+	<div class="text-container">
+		<div class="wrapper">
+			<h3>Prodception</h3>
+			<p>The Conception of Great Product</p>
+		</div>
+	</div>
 </div>
 <div class="companyExplanation">
 	<h2>The Central Hub for Product Conception and Production</h2>
 	<hr>
 	<p>The list of businesses under the Prodception umbrella is growing and will continually expand. With a new way of approaching company management Prodception changes the way businesses are started and the approach to expansion. Our Products and Services will always provide quality, excellence and effiecency.</p>
 </div>
-<div class="product-banner">
+<div class="info-banner">
 	<h2>Our Products</h2>
 </div>
-<div class="productCategories"></div>
-<div class="reach-out"></div>
-<div class="team"></div>
-<div class="services-talk"></div>
-<div class="last-message"></div>
+<div class="products">
+	<div ng-repeat="product in homepage.products">
+		<div class="title">
+			<h3 ng-bind='product.title'></h3>
+			<hr>
+		</div>
+		<a ui-sref="products">
+			<img ng-src="{{product.imgsource}}">
+		</a>
+		<hr>
+		<p class="summary" ng-bind='product.summary'></p>	
+	</div>
+</div>
+<div class="reach-out">
+	<h2>Contract our Infastructure</h2>
+	<hr>
+	<div class="main-content">
+		<div>
+			<img height="80" src="app/images/002-people.svg">
+		</div>
+		<div>	
+			<p> When starting a business it can be a bit unclear exactly what you need, who you need, and when you need them. Much money and time is wasted intially by not having the correct infastructure. We work to bring your ideas to life by listening to your needs and providing the infastructure that suits those needs. </p>
+		</div>	
+	</div>
+	<a ui-sref="apply">Apply Now</a>
+</div>
+<div class="questions">
+	<h2>Anymore Questions? Reach out to us</h2>
+	<hr>
+	<p>If you have any questions about Prodception, the services we offer or how to see your business brought to life and listed feel free to <a ui-sref="contact-us">reach out to us today.</a></p>
+	<a ui-sref="contact-us">
+		<img src="app/images/email.svg">
+	</a>	
+</div>
+
+
+
