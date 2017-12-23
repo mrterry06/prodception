@@ -57,6 +57,13 @@
   		]
   	}];
 
+    jobListings.forEach((position) => {
+        position.showContent = false;
+        position.toggleContentVisibility = function () {
+          this.showContent = !this.showContent;
+        }
+    });
+
   	service.getJobListings = () => {
   		return jobListings;
   	}

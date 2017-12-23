@@ -1,23 +1,32 @@
-<h1>Work at Prodception</h1>
-<p>
-	Prodception is a revolutionary company. Part of what makes it that is our amazing workers. 
-	Come Join us in being a company that is changing the way business is managed.
-</p>
-<div class="Job Listings">
-	<h3>Open Positions</h3>
-	<hr>
-	<b ng-if="!employment.positions.length">There are currently no open positions</b>
-	<div ng-if="employment.positions.length">
-		<div ng-repeat="position in employment.positions">
-			<h3 ng-bind="position.position"></h3>
-			<hr>
-			<p class="description" ng-bind="position.description"></p>
-			<ul class="requirements">
-				<li ng-repeat="requirement in position.requirements" ng-bind="requirement">
-				</li>
-			</ul>
-			<button ng-bind="'Apply Now'"></button>
-			<hr>
+<div id="employment">
+	<h1>Work at Prodception</h1>
+	<p>
+		Prodception is a revolutionary company. Part of what makes it that is our amazing workers. 
+		Come Join us in being a company that is changing the way business is managed.
+	</p>
+	<div class="Job Listings">
+		<h3>Open Positions</h3>
+		<hr>
+		<b ng-if="!employment.positions.length">There are currently no open positions</b>
+		<div ng-if="employment.positions.length">
+			<div class="position" ng-repeat="position in employment.positions">
+				<div class="header" ng-click="position.toggleContentVisibility()">
+					<h3 ng-bind="position.position"></h3>
+					<i class="prodception-down-arrow" ng-class="{'upward-arrow': position.showContent}"></i>
+				</div>
+				<hr>
+				<div class="details" ng-class="{'show-details': position.showContent}">
+					<p class="description" ng-bind="position.description"></p>
+					<ul class="requirements">
+						<h4 class="heading">Requirements:</h4>
+						<li ng-repeat="requirement in position.requirements">
+							<span>-</span><span>{{requirement}} </span>
+						</li>
+					</ul>
+					<button ng-bind="'Apply Now'"></button>
+					<hr>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

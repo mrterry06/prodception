@@ -1,20 +1,72 @@
-employment {
+#employment {
 	text-align: center;
 	li {
 		list-style: none;
 	}
+	.position {
+		position: relative;
 
-	.description {
-		padding: 15px 65px 0;
+		i {
+			display: none;
+		}
+
+		.description {
+			padding: 15px 65px 0;
+		}
+
+		.requirements {
+			text-align: justify;
+			display: block;
+			margin: 0 auto;
+			max-width: 550px;
+			padding: 20px 10px;
+		}
+
+		@include small-screens-only {
+			.header {
+				h3 {
+					padding: 0 20px;
+				}
+				i {
+					position: absolute;
+					display: inline;
+					top: 0;
+					right: 12px;
+				}
+			}
+
+			.upward-arrow {
+				transform: rotate(-135deg);
+				top: 10px !important;
+			}
+
+			.details {
+				transition: 300ms linear all;
+				max-height: 0px;
+				overflow: hidden;
+			}
+
+			.show-details {
+				max-height: 100vh;	
+			}	
+
+			.description {
+				padding: 15px 16px 0;
+				text-align: justify;
+				font-size: 15px;
+			}
+
+			.requirements {
+				.heading {
+					text-align: center;
+				}
+				li {
+					text-align: left;
+				}
+			}
+		}
 	}
 
-	.requirements {
-		text-align: justify;
-		display: block;
-		margin: 0 auto;
-		max-width: 550px;
-		padding: 20px 10px;
-	}
 
 	button {
 		transition: box-shadow 0.3s ease-in-out;

@@ -1,7 +1,7 @@
 const express = require('express'),
 	  app = require('./prod/app.js');
 
-let port = process.argv[2] || 8181;
+const port = process.argv[2] || 8181;
 
 app.use(express.static(__dirname));
 

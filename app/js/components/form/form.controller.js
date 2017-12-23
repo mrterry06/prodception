@@ -11,15 +11,17 @@
 	vm.submitError = false;
 	vm.submitSucess = false;
 
-	console.log(vm);
+	console.log($scope);
 
 	vm.formConfigurations = FormService.getFormConfigurations(vm.isContactUs);
 
 	vm.submit = () => {
-		if ($scope[vm.formType].$valid && false) {
+		if ($scope.mainForm.$valid) {
 			SubmitService.sendMessage(vm.path, vm.formData)
 				.then(() => {
 					vm.submitSucess = true;
+					console.log(vm.formData);
+					vm.formData = {};
 					console.log( ` ${vm.formType} submitted sucessfully`);
 				}, () => {
 					vm.submitError = true;

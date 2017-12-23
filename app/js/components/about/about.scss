@@ -7,11 +7,22 @@
 	}
 
 	.history {
+		display: flex;
 		div {
-			display: inline-block;
+			flex: 1;
 			position: relative;
 			p {
 				width: 100%;
+			}
+		}
+
+		@include small-screens-only {
+			display: block;
+
+			img {
+				display: block;
+				margin: 0 auto;
+				margin-bottom: 10px;
 			}
 		}
 

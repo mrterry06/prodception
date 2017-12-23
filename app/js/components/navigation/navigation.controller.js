@@ -22,7 +22,7 @@
   		format: 'Home',
   	}, {
   		route: 'about',
-  		format: 'About'
+  		format: 'Learn More'
   	}, {
   		route: 'products',
   		format: 'Products'
