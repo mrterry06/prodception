@@ -23,10 +23,7 @@ var addStream = require('add-stream'),
 		'./app/js/components/**/*.js',
 		'./app/js/components/**/**/*.js',
 		'./app/js/app.js',
-		'./app/js/services/*.js',
-		'./app/js/constants/*.js',
-		'./app/js/filters/*.js',
-		'./app/js/directives/*.js'
+		'./app/js/services/*.js'
 	];
 
 	module.exports = function (done) {

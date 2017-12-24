@@ -4,7 +4,9 @@
   "description": "credit card",
   "main": "index.js",
   "scripts": {
-    "test": "npm run start"
+    "test": "npm run start",
+    "prod-install": "npm install -g gulp && npm install && gulp prod",
+    "prod" : "node server.js"
   },
   "repository": {
     "type": "git",
@@ -49,15 +51,6 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
-    "istanbul": "^0.4.5",
-    "jasmine-core": "^2.8.0",
-    "karma": "^1.7.1",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-ng-html2js-preprocessor": "^1.0.0",
-    "karma-phantomjs-launcher": "^1.0.4",
-    "karma-read-json": "^1.1.0",
     "moment": "^2.18.1",
     "nodemailer": "^4.4.1",
     "vinyl-source-stream": "^1.1.0"

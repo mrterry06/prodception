@@ -20,11 +20,7 @@
     'employment',
     //Services
     'ScrollingService',
-    'SubmitService',
-    //Directives
-    'magicScroll',
-    //Constants
-    'globalConstants'
+    'SubmitService'
   ]);
 
   angular.module('app').config(appConfiguration);
