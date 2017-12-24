@@ -67,7 +67,7 @@ var addStream = require('add-stream'),
 	}
 
 	function prepareTemplates () {
-		return gulp.src('app/js/components/**/*.html')
+		return gulp.src(['app/js/components/**/*.html', 'app/modal-templates/*.html'], {base: 'app/'})
 		.pipe(htmlmin({collapseWhitespace: true}))
 		.pipe(angularTemplateCache({root: 'app/js/components'}));
 	}

@@ -11,8 +11,6 @@
 	vm.submitError = false;
 	vm.submitSucess = false;
 
-	console.log($scope);
-
 	vm.formConfigurations = FormService.getFormConfigurations(vm.isContactUs);
 
 	vm.submit = () => {

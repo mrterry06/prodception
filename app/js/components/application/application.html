@@ -6,8 +6,9 @@
 		<p>
 			Get your business in order by having the correct infastructure
 		</p>
-		<i>Learn More</i>
+		<i ng-click="modalOptions.openModal()">Learn More</i>
 		<hr>
 	</div>
 	<prod-form form-type="'application'" content="application.formContent" is-application="true" path="'/client/application'"></prod-form>
 </div>
+<modal ng-if="modalOptions.isVisible" controller-name="applicationController" template-url="app/modal-templates/application-modal.html"></modal>

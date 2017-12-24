@@ -1,0 +1,40 @@
+#application-modal {
+	.overlay {
+		position: fixed; 
+		top: 0; 
+		right: 0; 
+		left: 0; 
+		bottom: 0; 
+		background-color: black; 
+		opacity: .6; cursor: pointer;
+	}
+
+	.modal-content {
+		position: fixed; 
+		background-color: white; 
+		top: 50px; 
+		left: 50px; 
+		right: 50px; 
+		bottom: 50px;
+		overflow: scroll;
+
+		h1, h2 {
+			text-align: center;
+		}
+
+		hr {
+			width: 100%;
+		}
+
+
+		@include small-screens-only {
+			top: 25px;
+			left: 25px;
+			right: 25px;
+			bottom: 25px;
+			padding: 10px 10px 20px 10px;
+		}
+	}
+}
+
+#employment-modal {}

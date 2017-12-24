@@ -18,6 +18,7 @@
     'application',
     'prodForm',
     'employment',
+    'modal',
     //Services
     'ScrollingService',
     'SubmitService'
