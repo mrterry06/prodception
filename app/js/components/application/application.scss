@@ -1,4 +1,16 @@
-application {
+#application {
+	margin-top: 15px;
+	.app-content {
+		text-align: center;
+		i {
+				color: #007bff;
+				cursor: pointer;
+
+				&:hover {
+						border-bottom: 1px solid;
+				}
+		}
+	}
 	
 	button {
 		float: right;
