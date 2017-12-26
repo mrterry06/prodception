@@ -8,8 +8,8 @@
 			restrict: 'E',
 			controller: '@',
 			name: 'controllerName',
-			templateUrl: function (elem, attrs) {
-				return attrs.templateUrl
+			templateUrl: function (elem, attr) {
+				return attr.modalTemplate;
 			}
 		}
 	}	

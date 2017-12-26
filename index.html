@@ -13,12 +13,16 @@
 	<link rel="stylesheet" type="text/css" href="app/styles/bootstrap-reboot.min.css">
 
 </head>
-<body ng-app="app">
+<body ng-app="app" ng-controller="appController">
   	<navigation></navigation>	
 	
 	<div ui-view></div>
 	
 	<footer></footer>
+	<!-- Two different modals to handle failed interpolation -->
+	<modal ng-if="modalInfo.applicationModal" controller-name="appController" modal-template="app/modal-templates/application-modal.html"></modal>
+	<modal ng-if="modalInfo.employmentModal" controller-name="appController" modal-template="app/modal-templates/employment-modal.html"></modal>
+	<!-- application -->
 	<script type="text/javascript" src="app/js/vendors.min.js"></script>
 	<script type="text/javascript" src="app/js/app.min.js"></script>
 </body>

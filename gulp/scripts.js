@@ -23,6 +23,7 @@ var addStream = require('add-stream'),
 		'./app/js/components/**/*.js',
 		'./app/js/components/**/**/*.js',
 		'./app/js/app.js',
+		'./app/js/controllers/*.js',
 		'./app/js/services/*.js'
 	];
 

@@ -7,18 +7,11 @@
   function controller ($state, $scope, $http, SubmitService) {
   	const vm = this;
 
-    $scope.modalOptions = {
-      isVisible: false,
-      openModal: function () {
-        this.isVisible = true;
-      },
-      closeModal: function () {
-        this.isVisible = false;
-        $scope.$parent.modalOptions.isVisible = false;
-      }
+    $scope.openModal = () => {
+      $scope.$emit('openModal', {
+        modal: 'applicationModal'
+      });
     };
-
-    
 
   	vm.formContent = {
 		  heading : 'Apply Today',

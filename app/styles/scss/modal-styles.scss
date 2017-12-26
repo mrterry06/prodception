@@ -6,7 +6,8 @@
 		left: 0; 
 		bottom: 0; 
 		background-color: black; 
-		opacity: .6; cursor: pointer;
+		opacity: .8; 
+		cursor: pointer;
 	}
 
 	.modal-content {
@@ -17,6 +18,33 @@
 		right: 50px; 
 		bottom: 50px;
 		overflow: scroll;
+
+		.modal-header {
+
+			.close-icon {
+			    width: 60px;
+			    height: 60px;
+			    position: relative;
+			    cursor: pointer;
+			}
+			.close-icon:after {
+			    content: '';
+			    height: 60px;
+			    border-left: 2px solid black;
+			    position: absolute;
+			    transform: rotate(45deg);
+			    left: 28px;
+			}
+
+			.close-icon:before {
+			    content: '';
+			    height: 60px;
+			    border-left: 2px solid black;
+			    position: absolute;
+			    transform: rotate(-45deg);
+			    left: 28px;
+			}
+		}
 
 		h1, h2 {
 			text-align: center;
@@ -37,4 +65,25 @@
 	}
 }
 
-#employment-modal {}
+#employment-modal {
+	.overlay {
+		position: fixed; 
+		top: 0; 
+		right: 0; 
+		left: 0; 
+		bottom: 0; 
+		background-color: black; 
+		opacity: .8; 
+		cursor: pointer;
+	}
+
+	.modal-content {
+		position: fixed; 
+		background-color: white; 
+		top: 50px; 
+		left: 50px; 
+		right: 50px; 
+		bottom: 50px;
+		overflow: scroll;
+	}
+}
