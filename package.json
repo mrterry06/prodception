@@ -1,7 +1,7 @@
 {
-  "name": "orang-card",
+  "name": "prodception",
   "version": "1.0.0",
-  "description": "credit card",
+  "description": "company site",
   "main": "index.js",
   "scripts": {
     "test": "npm run start",
@@ -10,11 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://MrMidas91@bitbucket.org/MrMidas91/orange-card.git"
+    "url": "https://github.com/mrterry06/prodception.git"
   },
   "author": "Scott Terry",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/MrMidas91/orange-card#readme",
+  "homepage": "https://github.com/mrterry06/prodception.git",
   "dependencies": {
     "add-stream": "^1.0.0",
     "angular": "^1.5.11",
