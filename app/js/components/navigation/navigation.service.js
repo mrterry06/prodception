@@ -11,7 +11,6 @@
 
 		service.closeMenu = () => {
 			service.isMenuOpen = false;
-			ScrollingService.scrollToTop(true);
 		};
 
 	}

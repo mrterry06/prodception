@@ -8,9 +8,8 @@
   	const vm = this;
 
     vm.navigate = (route) => {
-      NavigationService.closeMenu();
       $state.go(route);
-    }
+    };
 
   	vm.routes = [{
   		route: 'apply',

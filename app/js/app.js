@@ -59,16 +59,4 @@
     $urlRouterProvider.otherwise('/');
   }
 
-  //Do this on run time
-  angular.module('app').run(appRun);
-  appRun.$inject = ['$rootScope', '$window'];
-  function appRun ($rootScope, $window) {
-    //ScrollToTop on changed state
-    $rootScope.$on('$stateChangeSuccess', function () {
-      console.log('running');
-      $window.scrollTo(0,0);
-    });
-
-  }
-
 })();

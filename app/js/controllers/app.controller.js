@@ -3,27 +3,28 @@
 	angular.module('app')
 		.controller('appController', controller);
 
-	controller.$inject = ['$scope'];
-	function controller ($scope) {
+	controller.$inject = ['$scope', '$state', 'ScrollingService', 'NavigationService'];
+	function controller ($scope, $state, ScrollingService, NavigationService) {
 		$scope.modalInfo = {
 			applicationModal: false,
 			employmentModal: false
-		}
-
-		$scope.test = 'test';
+		};
 
 		$scope.$on('openModal', (emitInfo, data) => {
 			let mi = $scope.modalInfo;
 			mi[data.modal] = true;
 		});
 
-		$scope.stopPropagation = (event) => {
-			console.log('stopPropagation');
-			event.stopPropagation();
-		};
+		$scope.$watch(() => {
+			return $state.$current.name;
+		}, () => {
+			NavigationService.closeMenu();
+			ScrollingService.scrollToTop();
+		});
 
 		$scope.closeModal = (event) => {
-			const isTargetElement = ['overlay', 'close-icon'].some((className) => {
+			const elementClasses = ['prodception-close-icon', 'prodception-overlay'];
+			const isTargetElement = elementClasses.some((className) => {
 				return  event.target.className.includes(className);
 			});
 			if (isTargetElement) {

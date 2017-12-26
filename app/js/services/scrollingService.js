@@ -9,7 +9,7 @@
 
 		let oldTimestamp, cosineParameter, scrollCount, step, isUpwardScroll, destination;
 
-		service.scrollToTop = (shouldNotAnimate) => {
+		service.scrollToTop = () => {
 			resetConfigurationVariables();
 			isUpwardScroll = true;
 			step = (newTimestamp) => {

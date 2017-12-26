@@ -122,6 +122,24 @@ html, body {
   font-family: 'Vollkorn SC', serif !important;
 }
 
+body {
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+  }
+  
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #fbfafa;
+    background-color: #F5F5F5;
+  }
+
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 2px solid #555555;
+  }
+}
+
 button, a {
   cursor: pointer;
 }

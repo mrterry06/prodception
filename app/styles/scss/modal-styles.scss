@@ -1,18 +1,54 @@
-#application-modal {
-	.overlay {
-		position: fixed; 
-		top: 0; 
-		right: 0; 
-		left: 0; 
-		bottom: 0; 
-		background-color: black; 
-		opacity: .8; 
-		cursor: pointer;
-	}
+.prodception-overlay {
+	position: fixed; 
+	top: 0; 
+	right: 0; 
+	left: 0; 
+	bottom: 0; 
+	background-color: black; 
+	opacity: .8; 
+	cursor: pointer;	
+};
 
+.prodception-close-icon {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+    	content: '';
+    	height: 60px;
+    	border-left: 2px solid black;
+    	position: absolute;
+    	transform: rotate(45deg);
+    	left: 28px;
+
+    	@include small-screens-only {
+    		height: 45px;
+    		top: 8px;
+    	}
+    };
+
+    &:before {
+    	content: '';
+    	height: 60px;
+    	border-left: 2px solid black;
+    	position: absolute;
+    	transform: rotate(-45deg);
+    	left: 28px;
+
+    	@include small-screens-only {
+    		height: 45px;
+    		top: 8px;
+    	}
+    };
+}
+
+#application-modal {
 	.modal-content {
 		position: fixed; 
-		background-color: white; 
+		background-color: white;
+		padding: 15px; 
 		top: 50px; 
 		left: 50px; 
 		right: 50px; 
@@ -20,38 +56,29 @@
 		overflow: scroll;
 
 		.modal-header {
-
-			.close-icon {
-			    width: 60px;
-			    height: 60px;
-			    position: relative;
-			    cursor: pointer;
-			}
-			.close-icon:after {
-			    content: '';
-			    height: 60px;
-			    border-left: 2px solid black;
-			    position: absolute;
-			    transform: rotate(45deg);
-			    left: 28px;
+			padding: 25px 4px 37px;
+			margin-left: 10px;
+			@include small-screens-only {
+				padding: 18px 4px 30px;
+				margin-left: 0;
 			}
 
-			.close-icon:before {
-			    content: '';
-			    height: 60px;
-			    border-left: 2px solid black;
-			    position: absolute;
-			    transform: rotate(-45deg);
-			    left: 28px;
-			}
 		}
 
 		h1, h2 {
 			text-align: center;
 		}
 
+		h2 {
+			padding: 21px 0 0 0;
+		}
+
 		hr {
 			width: 100%;
+		}
+
+		img {
+			padding-bottom: 20px;
 		}
 
 
@@ -66,19 +93,9 @@
 }
 
 #employment-modal {
-	.overlay {
-		position: fixed; 
-		top: 0; 
-		right: 0; 
-		left: 0; 
-		bottom: 0; 
-		background-color: black; 
-		opacity: .8; 
-		cursor: pointer;
-	}
-
 	.modal-content {
 		position: fixed; 
+		padding: 15px;
 		background-color: white; 
 		top: 50px; 
 		left: 50px; 
