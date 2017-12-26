@@ -65,7 +65,7 @@
     });
 
   	service.getJobListings = () => {
-  		return jobListings;
+  		return [];
   	}
   }
 })();
