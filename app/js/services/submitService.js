@@ -9,7 +9,7 @@
 		const service = this;
 
 		service.sendMessage = (path, data) => {
-			return 	$http.post(requestRoot + path, data);
+			return 	$http.post(path, data);
 		};
 
 	}	

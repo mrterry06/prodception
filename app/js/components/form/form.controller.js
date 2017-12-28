@@ -14,11 +14,17 @@
 	vm.formConfigurations = FormService.getFormConfigurations(vm.isContactUs);
 
 	vm.submit = () => {
+		// This ugly
 		if ($scope.mainForm.$valid) {
+			vm.formData.subject = 'Contract Application';
+			if (vm.isContactUs) {
+				vm.formData.subject = 'Customer Contact';
+			}
+
 			SubmitService.sendMessage(vm.path, vm.formData)
-				.then(() => {
-					vm.submitSucess = true;
-					console.log(vm.formData);
+				.then((wasSent) => {
+					vm.submitSucess = wasSent;
+					vm.submitError = !vm.submitSucess;
 					vm.formData = {};
 					console.log( ` ${vm.formType} submitted sucessfully`);
 				}, () => {

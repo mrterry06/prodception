@@ -15,11 +15,15 @@ app.use(bodyParser.urlencoded({
 .use(morgan('dev'));
 
 app.post('/client/apply', (req, res) => {
-	res.send(true);
+	mailer(req.body, (wasSent) => {
+		res.send(wasSent);
+	});
 });
 
 app.post('/contact/message', (req, res) => {
-	res.send(true);
+	mailer(req.body, (wasSent) => {
+		res.send(wasSent);
+	});
 });
 
 module.exports = app;

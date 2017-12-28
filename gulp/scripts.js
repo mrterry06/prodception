@@ -36,7 +36,7 @@ var addStream = require('add-stream'),
 		.pipe(babel({
 			presets: ['babel-preset-es2015-script']
 		}))
-		// .pipe(uglify())
+		.pipe(uglify())
 		.pipe(concat('./app/js/app.js'))
 		.pipe(rename('./app/js/app.min.js'))
 		.pipe(gulp.dest('./'))

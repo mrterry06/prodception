@@ -30,6 +30,7 @@ module.exports = function () {
 	});
 
 	server.post('/contact/message', function (req, res) {
+		console.log(req.body);
 		res.send({
 			sent: true
 		});
