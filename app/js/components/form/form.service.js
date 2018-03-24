@@ -23,7 +23,7 @@
 				required: true
 			},
 			phone: {
-				formattedName: 'Phone',
+				formattedName: 'Phone (optional)',
 				type: 'tel',
 				id: 'phone',
 				minlength: 10,
@@ -31,7 +31,7 @@
 				required: false
 			},
 			email: {
-				formattedName: 'Email',
+				formattedName: 'Email (optional)',
 				type: 'email',
 				id: 'email',
 				required: true
@@ -44,35 +44,15 @@
 				maxlength: 5,
 				required: true
 			},
-			company: {
-				formattedName: 'Company',
-				type: 'text',
-				id: 'company',
+			creditcard: {
+				formattedName: 'Credit Card Number',
+				type: 'tel',
+				id: 'credit-card',
 				minlength: 2,
 				required: true
 			}
 		};
 
-		service.getFormConfigurations = (isContactUs) => {
-			let conactUsForm = ['firstname', 'lastname', 'email', 'phone'];
-			if (isContactUs) {
-				return conactUsForm.map((id) => {
-					return formConfigurations[id];
-				});
-			}
-
-			return mapObj(formConfigurations, (fieldConfig) => {
-				return fieldConfig;
-			});
-
-		}
-
-		function mapObj (obj, callback) {
-			let transformedData = [];
-			for (var key in obj) {
-				transformedData.push(callback(obj[key], key));
-			}
-			return transformedData;
-		}
+		service.getFormConfigurations = () =>  formConfigurations; 
 	}
 })();

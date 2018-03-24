@@ -2,7 +2,7 @@ $background-gray: #f3f1ef;
 
 home-page {
 	> div {
-		height: 600px;
+		min-height: 600px;
 		position: relative;
 		border: 1px solid #c3c3c3;
 		background-color: white;
@@ -20,7 +20,7 @@ home-page {
 		position: relative;
 		.background {
 			box-shadow: none;
-			background-image: url('../images/skyscraper_2.jpeg');
+			background-image: url('../images/lion.jpg');
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -80,6 +80,7 @@ home-page {
 
 	.info-banner {
 		height: 100px;
+		min-height: 100px;
 		font-size: 25px;
 		text-align: center;
 		border-bottom: none;
@@ -126,7 +127,7 @@ home-page {
 		}
 
 		img {
-			height: 200px;
+			width: 100%;
 		}
 
 		p {

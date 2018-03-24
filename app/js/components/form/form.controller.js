@@ -3,8 +3,8 @@
   angular.module('prodForm')
   .controller('prodFormController', controller);
 
-  controller.$inject = ['$state', '$scope', '$http', 'SubmitService', 'FormService'];
-  function controller ($state, $scope, $http, SubmitService, FormService) {
+  controller.$inject = ['$state', '$scope', '$http',  'FormService'];
+  function controller ($state, $scope, $http, FormService) {
   	const vm = this;
 
   	vm.formData = {};

@@ -2,10 +2,9 @@
 	angular.module('homePage')
 		.controller('homePageController', controller);
 
-	controller.$inject = ['$scope', '$state','homePageContent', 'productsService'];	
-	function controller ($scope, $state, homePageContent, productsService) {
+	controller.$inject = ['$scope', '$state','homePageContent'];	
+	function controller ($scope, $state, homePageContent) {
 		var vm = this;
 		vm.content = homePageContent;
-		vm.products = productsService.getProducts();
 	};
 })();
