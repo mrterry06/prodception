@@ -1,0 +1,40 @@
+<div id="product-selection">
+	<i style="color:darkred"> * Scroll Right to see all variations</i>
+	<div class="product-container">
+		<div ng-repeat="product in productSelection.products">
+			<h4>{{ product.color}}</h4>
+			<b style="text-align:center">$ 10.00</b>
+			<hr>
+			<img class="product-img" src="{{product.img}}"/>
+			<div class="size">
+				<p>Select A Size</p>
+				<select class="form-control" ng-model="product.size" ng-change="productSelection.changeSize(product, product.size)">
+					<option ng-repeat="size in productSelection.sizes" value="{{size}}" ng-selected="{{$index === 0}}">{{size}}</option>
+				</select>
+			</div>
+			<div class="quantity" style="text-align:center">
+				<b ng-click="productSelection.changeQuantity(product, product.quantity || 1, -1 )" >-</b>
+				<b>{{product.quantity || 1 }}</b>
+				<b ng-click="productSelection.changeQuantity(product, product.quantity || 1, +1 )">+</b>
+			</div>
+			<button ng-click="productSelection.addToCart(product)" class="btn btn-primary">Add To Cart</button>
+		</div>
+	</div>
+	<div style="border-top: 1px solid; border-bottom: 1px solid;" id="cart" ng-if="productSelection.showCart">
+		
+		<hr>
+		<div>
+			<div class="items">
+				<ul>
+					<li style="position: relative" ng-repeat="(key, value) in productSelection.cart">
+						<p class="item-name"> <b>Item:</b> {{ productSelection.cart[key].color }} Shirt</p>
+						<p> <b>Quantity:</b> {{productSelection.cart[key].quantity}}</p>
+						<img height="60" ng-src="{{productSelection.cart[key].img}}" />
+					</li>
+				</ul>
+			</div>
+			<hr>
+			Total {{ productSelection.cartTotal || 0 | currency }}
+		</div>
+	</div>
+</div>

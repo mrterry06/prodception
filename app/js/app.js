@@ -10,6 +10,7 @@
     //Custom components
     'homePage',
     'prodForm',
+    'productSelection',
     'ScrollingService',
     'PaymentService'
   ]);

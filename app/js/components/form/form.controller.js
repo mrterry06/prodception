@@ -3,8 +3,8 @@
   angular.module('prodForm')
   .controller('prodFormController', controller);
 
-  controller.$inject = ['$state', '$scope', '$http',  'FormService'];
-  function controller ($state, $scope, $http, FormService) {
+  controller.$inject = ['$state', '$scope', '$http',  'FormService', 'PaymentService'];
+  function controller ($state, $scope, $http, FormService, PaymentService) {
   	const vm = this;
 
   	vm.formData = {};
@@ -12,7 +12,7 @@
 	vm.submitSucess = false;
 
 	vm.formConfigurations = FormService.getFormConfigurations(vm.isContactUs);
-
+	vm.products = PaymentService.products;
 	vm.submit = () => {
 		// This ugly
 		if ($scope.mainForm.$valid) {
