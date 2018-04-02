@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run start",
     "prod-install": "npm install -g gulp && npm install && gulp prod",
-    "prod" : "node server.js"
+    "prod": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "angular-touch": "^1.5.11",
     "angular-ui-router": "^1.0.3",
     "async": "^2.5.0",
+    "braintree": "^2.8.0",
     "connect-modrewrite": "^0.10.1",
     "cors": "^2.8.4",
     "eslint": "^4.6.1",

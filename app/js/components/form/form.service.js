@@ -5,6 +5,7 @@
 
 	function service () {
 		const service = this;
+		const formData = {};
 		const formConfigurations = {
 			firstname: {
 				formattedName: 'First Name',
@@ -31,7 +32,7 @@
 				required: false
 			},
 			email: {
-				formattedName: 'Email (optional)',
+				formattedName: 'Email',
 				type: 'email',
 				id: 'email',
 				required: true
@@ -43,16 +44,10 @@
 				minlength: 5,
 				maxlength: 5,
 				required: true
-			},
-			creditcard: {
-				formattedName: 'Credit Card Number',
-				type: 'tel',
-				id: 'credit-card',
-				minlength: 2,
-				required: true
 			}
 		};
 
+		service.getFormData = () => formData;
 		service.getFormConfigurations = () =>  formConfigurations; 
 	}
 })();

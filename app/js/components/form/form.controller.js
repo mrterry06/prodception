@@ -5,36 +5,56 @@
 
   controller.$inject = ['$state', '$scope', '$http',  'FormService', 'PaymentService'];
   function controller ($state, $scope, $http, FormService, PaymentService) {
-  	const vm = this;
+	  const vm = this;
 
-  	vm.formData = {};
-	vm.submitError = false;
-	vm.submitSucess = false;
+    vm.formData = FormService.getFormData();
+      
+    vm.formConfigurations = FormService.getFormConfigurations(vm.isContactUs);
+    vm.products = PaymentService.products;
 
-	vm.formConfigurations = FormService.getFormConfigurations(vm.isContactUs);
-	vm.products = PaymentService.products;
-	vm.submit = () => {
-		// This ugly
-		if ($scope.mainForm.$valid) {
-			vm.formData.subject = 'Contract Application';
-			if (vm.isContactUs) {
-				vm.formData.subject = 'Customer Contact';
-			}
+    vm.confirmOrder = () => {
+      $scope.$emit('change-view', 'verify');
+    }
 
-			SubmitService.sendMessage(vm.path, vm.formData)
-				.then((wasSent) => {
-					vm.submitSucess = wasSent;
-					vm.submitError = !vm.submitSucess;
-					vm.formData = {};
-					console.log( ` ${vm.formType} submitted sucessfully`);
-				}, () => {
-					vm.submitError = true;
-				})
-				.catch(() => {
-					vm.submitError = true;
-				});
+    vm.submit = () => {
+      // This ugly
+      if ($scope.mainForm.$valid) {
+        vm.formData.subject = 'Contract Application';
+        if (vm.isContactUs) {
+          vm.formData.subject = 'Customer Contact';
+        }
 
-		} 
-	}
+        SubmitService.sendMessage(vm.path, vm.formData)
+          .then((wasSent) => {
+            vm.submitSucess = wasSent;
+            vm.submitError = !vm.submitSucess;
+            vm.formData = {};
+            console.log( ` ${vm.formType} submitted sucessfully`);
+          }, () => {
+            vm.submitError = true;
+          })
+          .catch(() => {
+            vm.submitError = true;
+          });
+
+      } 
+    }
+    
+    vm.preFillApp = () => {
+      const prefillData = {
+        firstname: 'Scott',
+        lastname: 'Terry',
+        email: 'mrterry06@gmail.com',
+        card: '1234567891234567',
+        cvv: '123',
+        exp: '12/13',
+        zipcode: '42420',
+        phone: 2702440823
+      };
+      
+      for (const field in prefillData) {
+        vm.formData[field] = prefillData[field];
+      }
+    }
   }
 })();

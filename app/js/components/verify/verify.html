@@ -1,0 +1,47 @@
+<div id="verify">
+	<form>
+
+		<h4>Review Your Information</h4>
+		<label ng-repeat="(field, fieldValue) in verify.content">
+			{{ field }}:
+			<input
+			ng-model="verify.content[field]"	
+			ng-if="verify.isNotExceptionField(field)"
+			readonly	
+		/>
+		<input
+			data-braintree-name="number"
+			ng-model="verify.content[field]"
+			ng-if="field === 'card'"
+			readonly
+			/>
+		<input
+		data-braintree-name="expiration_date"
+			ng-model="verify.content[field]"
+			ng-if="field === 'exp'"
+			readonly
+			/>
+			<input
+			data-braintree-name="cvv"
+			ng-model="verify.content[field]"
+			ng-if="field === 'cvv'"	
+			readonly
+			/>
+		</label>
+		<button class="btn btn-default" ng-click="verify.changeView('payment-info')">Edit Payment Information</button>
+		<hr>
+		<h4>Cart</h4>
+		<ul>
+			<li ng-repeat="(item, itemDetail) in verify.cart">
+				{{item}}
+				<div ng-repeat="(size, quantity) in itemDetail.sizes">
+					{{size}}: {{quantity}}
+				</div>
+			</li>
+		</ul>
+		<button class="btn btn-default" ng-click="verify.changeView('cart')">Edit Cart</button>	
+		<hr>
+		total: {{ verify.cartTotal | currency }}
+		<button class="btn btn-primary" ng-click="verify.changeView('spinner')">Submit</button>
+	</form>
+</div>

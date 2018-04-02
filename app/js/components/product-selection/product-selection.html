@@ -3,9 +3,9 @@
 	<div class="product-container">
 		<div ng-repeat="product in productSelection.products">
 			<h4>{{ product.color}}</h4>
-			<b style="text-align:center">$ 10.00</b>
+			<b style="text-align:center">{{ productSelection.price | currency }}</b>
 			<hr>
-			<img class="product-img" src="{{product.img}}"/>
+			<img class="product-img" ng-src="{{product.img}}"/>
 			<div class="size">
 				<p>Select A Size</p>
 				<select class="form-control" ng-model="product.size" ng-change="productSelection.changeSize(product, product.size)">
@@ -21,7 +21,6 @@
 		</div>
 	</div>
 	<div style="border-top: 1px solid; border-bottom: 1px solid;" id="cart" ng-if="productSelection.showCart">
-		
 		<hr>
 		<div>
 			<div class="items">
@@ -29,10 +28,24 @@
 					<li style="position: relative" ng-repeat="(key, value) in productSelection.cart">
 						<p class="item-name"> <b>Item:</b> {{ productSelection.cart[key].color }} Shirt</p>
 						<p> <b>Quantity:</b> {{productSelection.cart[key].quantity}}</p>
+						<div class="item-sizes">
+							<ul>
+								<li style="display: inline-block; text-align: center;" ng-repeat="(size, amount) in productSelection.cart[key].sizes">
+									<h5>{{ size }}</h5>
+									<div class="adjustments">
+										<b ng-click="productSelection.changeSizeQuantity(size, key, -1)">-</b>
+										<p>{{ amount }}</p>
+										<b ng-click="productSelection.changeSizeQuantity(size, key, +1)">+</b>
+									</div>
+								</li>
+							</ul>
+						</div>
 						<img height="60" ng-src="{{productSelection.cart[key].img}}" />
+						<button class="btn btn-danger" ng-click="productSelection.removeItem(key)" >Remove Item</button>
 					</li>
 				</ul>
 			</div>
+			<button class="btn btn-primary" ng-click="productSelection.checkout()">Checkout</button>
 			<hr>
 			Total {{ productSelection.cartTotal || 0 | currency }}
 		</div>

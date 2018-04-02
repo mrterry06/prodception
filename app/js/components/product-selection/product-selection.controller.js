@@ -11,15 +11,22 @@
 	vm.sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 	vm.cart = {};
 	vm.showCart = false;
+	vm.price = 25;
+
+	if (PaymentService.getCart() === null) {
+		PaymentService.setCart(vm.cart);
+	} else {
+		vm.cart = PaymentService.getCart();
+		generateTotal();
+		checkCartVisbility();
+	}
 
 	vm.addToCart = (item) => {
 		if (!item.size) item.size = vm.sizes[0];
-		console.log(item);
 		vm.cart[item.color] = itemCheck(item);
 		vm.products = PaymentService.getProducts();
 		checkCartVisbility();
 		generateTotal();
-		console.log(vm.cart);
 	}
 
 	vm.changeQuantity = (product, currentQuantity, increment) => {
@@ -27,8 +34,40 @@
 		product.quantity = currentQuantity + increment;
 	}
 
+	vm.changeSizeQuantity = (size, item, increment) => {
+		const currentSizeQuantity = vm.cart[item].sizes[size];
+		if (currentSizeQuantity + increment <= 0) {
+			delete vm.cart[item].sizes[size];
+			if (Object.keys(vm.cart[item].sizes).length <= 0 ) {
+				delete vm.cart[item];
+				checkCartVisbility();
+			} else {
+				vm.cart[item].quantity += increment;
+			}
+		} else {
+			vm.cart[item].sizes[size] = currentSizeQuantity + increment;
+			vm.cart[item].quantity += increment;
+		}
+
+		if (Object.keys(vm.cart).length <= 0) {
+			checkCartVisbility();
+		}
+		
+		generateTotal();
+	}
+
 	vm.changeSize = (product, size) => {
 		product.size = size;
+	}
+
+	vm.removeItem = (item) => {
+		delete vm.cart[item];
+		checkCartVisbility();
+		generateTotal();
+	}
+
+	vm.checkout = () => {
+		$scope.$emit('change-view', 'payment-info');
 	}
 
 	function itemCheck(item) {
@@ -66,7 +105,7 @@
 			total += vm.cart[key].quantity
 		}
 
-		vm.cartTotal = total * 10;
+		vm.cartTotal = total * vm.price;
 	}
   }
 })();

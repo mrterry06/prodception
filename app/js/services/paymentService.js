@@ -3,14 +3,35 @@
 
     angular.module('PaymentService', [])
         .service('PaymentService', paymentService);
-    paymentService.$inject = ['$window'];
-    function paymentService($window) {
+    paymentService.$inject = ['$window', '$http'];
+    function paymentService($window, $http) {
 
         const service = this;
+        const decision = 'approved';
+        const root = 'http://localhost:3000';
+        let cart = null;
 
         service.setupBraintree = () => {
-            console.log($window);
+            $http.get(`${root}/client-token`)
+              .then((res) => {
+                const clientToken = res.data;
+                braintree.setup(clientToken, 'custom', {id: 'mainForm'});
+              });          
         }
+
+        service.setCart = (newCart) => {
+          cart = newCart;
+        }
+
+        service.getCart = () => cart;
+        
+        service.submitPayment = () => {
+          console.log('Submitting Payment');
+        }
+
+        service.getPaymentDecision = () => {
+          return $http.get(`${root}/payment-verification`);
+        };
 
       const products = [{
           color: 'black-gold',

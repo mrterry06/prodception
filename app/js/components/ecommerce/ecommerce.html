@@ -1,0 +1,22 @@
+<div id="ecommerce">
+	<div ng-switch on="ecommerce.view">
+		<div ng-switch-when="cart">
+			<product-selection></product-selection>
+		</div>
+		<div ng-switch-when="payment-info">
+			<prod-form></prod-form>
+		</div>
+		<div ng-switch-when="verify">
+			<form name="reviewSection">
+				<verify></verify>
+			</form>
+		</div>
+		<div class="spinner" ng-switch-when="spinner">
+			<div class="loader"></div>
+			<i>Processing Your Payment...</i>
+		</div>
+		<div ng-switch-when="decision">
+			<decision></decision>
+		</div>
+	</div>
+</div>

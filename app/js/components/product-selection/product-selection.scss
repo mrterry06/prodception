@@ -3,6 +3,8 @@
     .product-container {
         display: flex;
         overflow-x: scroll;
+        -webkit-overflow-scrolling:touch;
+
         div {
             padding: 12px;
             h4, .size {
@@ -29,6 +31,30 @@
                 top: 0;
                 right: 10px;
             }
+
+            @include small-screens-only {
+                position: absolute;
+                top: 45px;
+                right: 5px;
+            }
         }
+
+        .item-sizes {
+            margin: 5px;
+            ul {
+                padding: 0 78px 0 0;
+                .adjustments {
+                    display: inline-flex;
+                    b, p {
+                        padding: 5px;
+                    }
+
+                    b {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
     }
 }

@@ -1,8 +1,6 @@
 <div id="form" class="container">
-	<product-selection></product-selection>
-	<h2 ng-bind="form.content.heading"></h2>
-	<p ng-bind="form.content.subheading"></p>
-	<form  name="mainForm">
+	<h2>Payment Information</h2>
+	<form id="mainForm"  name="mainForm">
 		<div ng-form class="input-container">
 			<label ng-repeat="field in form.formConfigurations" for="{{field.id}}" class="col col-sm-12 col-md-6 col-lg-6">{{ field.formattedName}}
 				<input class="form-control" 
@@ -12,44 +10,37 @@
 						minlength="{{field.minlength}}"
 						maxlength="f{{ield.maxlength}}"
 						required="{{field.required}}"
-						disabled
 						>
 			</label>
 			<hr class="featurette-divider"> 
-			<!-- <label class="col col-sm-12 col-md-6 col-lg-6"> Amount $
-				<input type="text" 
-					pattern="\d+\.\d{2}" 
-					name="amount" 
-					class="form-control" 
-					placeholder="10000.00 Do not use commas"
-					ng-model="form.formData.amount" 
-					required> 	
-			</label> -->
 			<label class="col col-sm-12 col-md-8 col-lg-8"> Card number:
-				<input data-braintree-name="number" 
-					   maxlength="16" 
+				<input  
+					   maxlength="17"
+					   minlength="16" 
 					   class="form-control" 
 					   placeholder="1234567891234567 No spaces"
-					   disabled
+					   ng-model="form.formData.card"
 				required> 
 			</label>
 			<label class="col col-sm-2 col-md-2 col-lg-2"> Expiration Date (MM/YY):
-				<input data-braintree-name="expiration_date" 
+				<input  
 					maxlength="5" 
 					placeholder='5/12' 
 					class="form-control"
-					disabled
+					ng-model="form.formData.exp"
 					required> 
 			</label>	 
 			<label class="col col-sm-2 col-md-2 col-lg-2">CVV:
-				<input data-braintree-name="cvv" 
+				<input  
 					maxlength="3" 
 					class="form-control" 
 					placeholder="999"
-					disabled 
+					ng-model="form.formData.cvv"
 					required>
 			</label>
 		</div>
-		<button disabled class="btn btn-lg btn-primary" ng-click="form.submit()">Process Payment</button>
+		<!-- <button disabled class="btn btn-lg btn-primary" ng-click="form.submit()">Process Payment</button> -->
+		<button ng-click="form.preFillApp()" class="btn btn-default">Prefill Info</button>
+		<button class="btn btn-primary" ng-click="form.confirmOrder()">Confirm Order</button>
 	</form>
 </div>

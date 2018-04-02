@@ -11,6 +11,10 @@
     'homePage',
     'prodForm',
     'productSelection',
+    'ecommerce',
+    'verify',
+    'decision',
+    //Services
     'ScrollingService',
     'PaymentService'
   ]);
