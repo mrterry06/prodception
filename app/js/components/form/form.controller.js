@@ -12,6 +12,8 @@
     vm.formConfigurations = FormService.getFormConfigurations(vm.isContactUs);
     vm.products = PaymentService.products;
 
+    console.log($scope);
+
     vm.confirmOrder = () => {
       $scope.$emit('change-view', 'verify');
     }

@@ -9,7 +9,8 @@
 	const content = FormService.getFormData();
 	const exceptionFields = ['card', 'exp', 'cvv'];
 
-	// PaymentService.setupBraintree();
+	PaymentService.setupBraintree();
+	
 	
 	vm.cart = PaymentService.getCart();
 	generateTotal();
@@ -18,6 +19,16 @@
 
 	vm.changeView = (v) => {
 		$scope.$emit('change-view', v);
+	}
+
+	vm.test = (e) => {
+		console.log('submitting');
+		$http.post('http://localhost:3000/checkout-test', getPersonalData())
+			.then((res) => {
+				const response = res.data;
+				console.log(res.data);
+			});
+		return true;	
 	}
 	
 	vm.isNotExceptionField = (field) =>  !exceptionFields.includes(field);
@@ -51,6 +62,18 @@
 		}
 
 		vm.cartTotal = total * 25;
+	}
+
+	function getPersonalData() {
+		const keysToExclude = ['card', 'exp', 'cvv'];
+		const personalData = {};
+		for (const key in content) {
+			if (!keysToExclude.includes(key)) {
+				personalData[key] = content[key];
+			}
+		}
+
+		return personalData;
 	}
   }
 })();

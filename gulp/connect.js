@@ -24,6 +24,12 @@ module.exports = function () {
 		next();
 	});
 
+	server.use(bodyParser.urlencoded({
+		extended: true
+	}));
+
+	server.use(bodyParser.json());
+
 	server.listen(3000, function () {
 		console.log('Started Mock server on port 3000');
 	});
@@ -53,14 +59,23 @@ module.exports = function () {
 	});
 
 	server.post('/checkout', function (req, res) {
-		gateway.transaction.sale({
-			amount: "10.00",
-			paymentMethodNonce: nonceFromTheClient,
-			options: {
-				submitForSettlement: true
-			}
-		}, function (err, result) {
-		});
+		console.log(req.body.payment_method_nonce);
+		console.log(req.body);
+		// gateway.transaction.sale({
+		// 	amount: "10.00",
+		// 	paymentMethodNonce: nonceFromTheClient,
+		// 	options: {
+		// 		submitForSettlement: true
+		// 	}
+		// }, function (err, result) {
+		// });
+
+		res.send('approved');
+	});
+
+	server.post('/checkout-test', (req, res) => {
+		console.log(req.body);
+		res.send(true);
 	});
 
 	server.get('/payment-verification', (req, res) => {

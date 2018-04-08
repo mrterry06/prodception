@@ -1,6 +1,5 @@
 <div id="verify">
-	<form>
-
+	<form id="verify-form" method="post" action="http://localhost:3000/checkout" >
 		<h4>Review Your Information</h4>
 		<label ng-repeat="(field, fieldValue) in verify.content">
 			{{ field }}:
@@ -42,6 +41,6 @@
 		<button class="btn btn-default" ng-click="verify.changeView('cart')">Edit Cart</button>	
 		<hr>
 		total: {{ verify.cartTotal | currency }}
-		<button class="btn btn-primary" ng-click="verify.changeView('spinner')">Submit</button>
+		<input class="btn btn-primary" id="submit" type="submit" value="submit"></button>
 	</form>
 </div>

@@ -39,8 +39,8 @@
 					required>
 			</label>
 		</div>
+	</form>
 		<!-- <button disabled class="btn btn-lg btn-primary" ng-click="form.submit()">Process Payment</button> -->
 		<button ng-click="form.preFillApp()" class="btn btn-default">Prefill Info</button>
-		<button class="btn btn-primary" ng-click="form.confirmOrder()">Confirm Order</button>
-	</form>
+		<button ng-disabled="mainForm.$invalid" class="btn btn-primary" ng-click="form.confirmOrder()">Confirm Order</button>
 </div>

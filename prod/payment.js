@@ -1,4 +1,4 @@
-import braintree from 'braintree';
+const braintree = require('braintree');
 
 const gateway = braintree.connect({
     enviroment: braintree.Environment.Sandbox,

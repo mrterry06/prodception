@@ -15,7 +15,7 @@
             $http.get(`${root}/client-token`)
               .then((res) => {
                 const clientToken = res.data;
-                braintree.setup(clientToken, 'custom', {id: 'mainForm'});
+                braintree.setup(clientToken, 'custom', { id: 'verify-form' });
               });          
         }
 
